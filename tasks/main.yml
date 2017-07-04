@@ -1,0 +1,8 @@
+---
+# tasks file for ../roles/telegram
+
+- name: Send Telegram message
+  telegram:
+     token: "bot304017237:AAHpKXZBaw_wOF3H-ryhWl3F3wqIVP_Zqf8"
+     chat_id: 6343788
+     msg: "Message sent from Ansible playbok | {{ ansible_memtotal_mb }}"
