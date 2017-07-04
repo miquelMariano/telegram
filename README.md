@@ -1,31 +1,46 @@
 Role Name
 =========
 
-A brief description of the role goes here.
+Use this role to sent a telegram message
 
 Requirements
 ------------
 
-Any pre-requisites that may not be covered by Ansible itself or the role should be mentioned here. For instance, if the role uses the EC2 module, it may be a good idea to mention in this section that the boto package is required.
+Chat bot is required.
+
+More info, [here](https://miquelmariano.github.io/2017/02/notificaciones-automaticas-con-telegram/)
 
 Role Variables
 --------------
 
-A description of the settable variables for this role should go here, including any variables that are in defaults/main.yml, vars/main.yml, and any variables that can/should be set via parameters to the role. Any variables that are read from other roles and/or the global scope (ie. hostvars, group vars, etc.) should be mentioned here as well.
+Variable `text` is required.
+This variable, contains the text that send it with telegram
+
+Normally, we will pass this variable in playbook
 
 Dependencies
 ------------
 
-A list of other roles hosted on Galaxy should go here, plus any details in regards to parameters that may need to be set for other roles, or variables that are used from other roles.
+No dependencies
 
 Example Playbook
 ----------------
 
-Including an example of how to use your role (for instance, with variables passed in as parameters) is always nice for users too:
+```yaml
+- hosts: ansible
+  user: root
+  tasks:
+    - include: ../roles/miquelMariano.telegram/tasks/main.yml
+      vars:
+        text: "Test message from ansible"
+```
 
-    - hosts: servers
-      roles:
-         - { role: username.rolename, x: 42 }
+Execute playbook
+----------------
+
+```yaml
+ansible-playbook playbooks/telegram.yml -i inventory/servers
+```
 
 License
 -------
@@ -35,4 +50,4 @@ BSD
 Author Information
 ------------------
 
-An optional section for the role authors to include contact information, or a website (HTML is not allowed).
+[miquelMariano.github.io](https://miquelMariano.github.io) | [Twitter](https://twitter.com/miquelMariano)
